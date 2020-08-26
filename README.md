@@ -1,5 +1,5 @@
 
-The Russian Blackball Math Questions
+The Moscow Blackball Math Questions
 ====================================
 
 This is a deeply personal quest.
