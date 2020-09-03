@@ -60,6 +60,105 @@ My Attempts
 Attempt Problem 1
 ----------------------------------------------------------------------------------------------------
 
+The immediate thing that jumps out to me is the $ \sqrt{1-x} $.
+
+In the event that $ x > 1 $ then the problem becomes a question of comparing two complex values:
+
+    $$ x(8 i \sqrt{x-1} + \sqrt{1+x}) \leq 11 \sqrt{1+x} - 16 i \sqrt{x-1} $$
+
+It wasn't clear to me how the comparison operator works between two complex numbers, a quick
+internert query created the following result:
+
+[Can a complex number ever be considered ...](https://math.stackexchange.com/questions/1116022/can-a-complex-number-ever-be-considered-bigger-or-smaller-than-a-real-number)
+
+Where the top result suggests that there are many ways to compare complex numbers, but it is
+suggested to stick to something convenient, they suggest three possible ways:
+1. Only compare the reals, ignore the imagination components
+2. Compare the reals first, only compare imaginaries if they are equal
+3. Compare the modulus of the two values
+
+If we split the equation up:
+
+Reals:
+
+    $$ x \sqrt{1+x} \leq 11 \sqrt{1+x} $$
+
+Imaginaries:
+
+    $$ 8x \sqrt{x-1}  \leq -16 \sqrt{x-1} $$
+
+Looking strictly at the imaginaries, we can see that the inequality does not hold. $ 8 \sqrt{x-1} $
+is always larger than $ -16 \sqrt{x-1} $. If we are comparing with the second option above, then the
+comparison fails whenever the reals are equal:
+
+    $$ x \sqrt{1+x} = 11 \sqrt{1+x} $$
+
+Multiply both sides by $ \sqrt{1-x} $:
+
+    $$ x \sqrt{1+x} \sqrt{1+x} = 11 \sqrt{1+x} \sqrt{1+x} $$
+    $$ x (1+x) = 11 (1+x) $$
+    $$ x + x^2 = 11 + 11x $$
+    $$ x^2 - 10x - 11 = 0 $$
+
+Quadratic Equation:
+
+    $$ \frac{10 \pm \sqrt{100 + 44}}{2} $$
+    $$ \frac{10 \pm \sqrt{144}}{2} $$
+    $$ \frac{10 \pm 12}{2} $$
+    $$ x = 11, -1$$
+
+But we only care about values of $ x > 1 $, so we'll throw out $ x = -1 $. Returning to our original
+idea, we have a value of $x$ for which the Reals are equal, forcing the comparison to switch to
+imaginaries, where the comparison fails. If we inspect the reals again, we can see a trivial result
+pop out:
+
+The comparison: 
+
+    $$ x \sqrt{1+x} \leq 11 \sqrt{1+x} $$
+
+Only holds for values of $ x \leq 11 $. We already know that $ x = 11 $ defaults to imaginary
+components, so if we compare two complex numbers using the first or second option above then we have
+a partial result:
+
+    $$ 1 < x < 11 $$
+
+We still don't have an answer if we choose option three. And we still don't have an answer for
+$ 0 < x < 1 $, which are the values of x for which both sides are fully real valued.
+
+Let's work on the modulus option now, the modulus of a complex number $ a + bi $ is found with
+$ m = a^2 + b^2 $. We can rewrite our inequality in a more convenient manner:
+
+    $$ x(8 i \sqrt{x-1} + \sqrt{1+x}) \leq 11 \sqrt{1+x} - 16 i \sqrt{x-1} $$
+    $$ (x\sqrt{1+x}) + (8x\sqrt{x-1})i \leq (11\sqrt{1+x}) + (-16\sqrt{x-1})i $$
+    $$ C_0 \leq C_1 $$
+
+We can solve for their moduli:
+
+    $$ |C_0| = (x^3 + x^2) + (64x^3 - 64x^2) = 65x^3 - 63x^2 $$
+    $$ |C_1| = (121x^3 + 121x^2) + (256x^3 - 256x^2) = 377x^3 - 135x^2 $$
+
+The comparison:
+
+	$$ 65x^3 - 63x^2 \leq 377x^3 - 135x^2 $$
+
+We can simplify by moving terms around:
+
+	$$ 0 \leq 312x^3 - 72x^2 $$
+	$$ 0 \leq x^2(312x - 72) $$
+
+This equality always holds for values of x greater than 1.
+
+With this solution, we have a complete answer for values of x greater than 1. Where across our
+three possible ways:
+1. Reals only: 1 < x < 11
+2. Reals, then Imaginaries: 1 < x < 11
+3. Modulus: 1 < x
+
+We need to now finish up the inequality for $ 0 < x \leq 1 $:
+
+    $$ x(8 \sqrt{1-x} + \sqrt{1+x}) \leq 11 \sqrt{1+x} - 16 \sqrt{1-x} $$
+
+
 
 The IDEAs
 ====================================================================================================
