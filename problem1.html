@@ -24,7 +24,7 @@ In the event that $ x > 1 $ then the problem becomes a question of comparing two
     $$ x(8 i \sqrt{x-1} + \sqrt{1+x}) \leq 11 \sqrt{1+x} - 16 i \sqrt{x-1} $$
 
 It wasn't clear to me how the comparison operator works between two complex numbers, a quick
-interner query created the following result:
+internet query created the following result:
 
 [Can a complex number ever be considered ...](https://math.stackexchange.com/questions/1116022/can-a-complex-number-ever-be-considered-bigger-or-smaller-than-a-real-number)
 
@@ -103,24 +103,163 @@ We can simplify by moving terms around:
 	$$ 0 \leq 312x^3 - 72x^2 $$
 	$$ 0 \leq x^2(312x - 72) $$
 
-This equality always holds for values of x greater than 1.
+This equality always holds for values of $x$ greater than 1.
 
-With this solution, we have a complete answer for values of x greater than 1. Where across our
+With this solution, we have a complete answer for values of $x$ greater than 1. Where across our
 three possible ways:
-1. Reals only: 1 < x < 11
-2. Reals, then Imaginaries: 1 < x < 11
-3. Modulus: 1 < x
+1. Reals only: $1 < x < 11 $
+2. Reals, then Imaginaries: $1 < x < 11$
+3. Modulus: $1 < x$
 
 We need to now finish up the inequality for $ 0 < x \leq 1 $:
 
     $$ x(8 \sqrt{1-x} + \sqrt{1+x}) \leq 11 \sqrt{1+x} - 16 \sqrt{1-x} $$
 
+It's not immediately obvious to me how this equation is solved. One thing that I can quickly do to
+gain an understanding of problem is solve the inequality at the extremes. Which in this case are $x$
+very close to 0, and $x$ = 1
+
+    $$ x \approx 0 $$
+
+Approximates to
+
+    $$ x(8 \sqrt{1-0} + \sqrt{1+x0}) \leq 11 \sqrt{1+0} - 16 \sqrt{1-0} $$
+    $$ 0(8*1 + 1) \leq  11*1 - 16$$
+    $$ 0 \leq -5 $$
+
+The above inequality is false, So, our initial inequality fails in the area surrounding 0.
+If we try the other extreme:
+
+    $$ x = 1 $$
+
+Reduces to
+
+    $$ x(8 \sqrt{1-1} + \sqrt{1+1}) \leq 11 \sqrt{1+1} - 16 \sqrt{1-1} $$
+    $$ 1(8*0 + \sqrt{2}) \leq 11 \sqrt{2} - 16*0 $$
+    $$ \sqrt{2}) \leq 11 \sqrt{2} $$
+
+Thankfully, our inequality holds at $x = 1$, so we do not have a contradiction with our earlier
+work.
+
+It's now time to actually attempt to solve the above inequality using good old fashioned algebra.
+To my mind, it makes sense to group like terms of square roots, and attempt to drop them out using
+linear combinations, that looks something like this:
+
+    $$ x(8 \sqrt{1-x} + \sqrt{1+x}) \leq 11 \sqrt{1+x} - 16 \sqrt{1-x} $$
+    $$ 8x\sqrt{1-x} + x\sqrt{1+x} \leq - 16 \sqrt{1-x} + 11 \sqrt{1+x}  $$
+    $$ 8x\sqrt{1-x} + x\sqrt{1+x} + (16\sqrt{1-x} - 11\sqrt{1+x}) 
+       \leq 11 \sqrt{1+x} - 16 \sqrt{1-x} + (16\sqrt{1-x} - 11\sqrt{1+x}) $$
+    $$ (8x + 16)\sqrt{1-x} + (x- 11)\sqrt{1+x} \leq 0 $$
+
+We split this equation up into two copies, then multiply each by a different square root:
+
+    $$ \sqrt{1-x} ((8x + 16)\sqrt{1-x} + (x - 11)\sqrt{1+x}) \leq 0 $$
+    $$ \sqrt{1+x} ((8x + 16)\sqrt{1-x} + (x - 11)\sqrt{1+x}) \leq 0 $$
+
+Creating:
+
+    $$ (8x + 16)(1-x) + (x - 11)\sqrt{1-x^2} \leq 0 $$
+    $$ (8x + 16)\sqrt{1-x^2} + (x - 11)(1+x) \leq 0 $$
+
+We repeat the pattern above:
+
+    $$ (8x + 16) ((8x + 16)(1-x) + (x - 11)\sqrt{1-x^2}) \leq 0 $$
+    $$ (x - 11) ((8x + 16)\sqrt{1-x^2} + (x - 11)(1+x)) \leq 0 $$
+
+Creating:
+
+    $$ (8x + 16)^2(1-x) + (8x + 16)(x - 11)\sqrt{1-x^2} \leq 0 $$
+    $$ (8x + 16)(x - 11)\sqrt{1-x^2} + (x - 11)^2(1+x) \leq 0 $$
+
+If you squint, you can see that these equations can be combined in a way that simplifies the whole
+lot. Here, let me restructure the equations a little...
+
+    $$ (8x + 16)(x - 11)\sqrt{1-x^2} + (8x + 16)^2(1-x) \leq 0 $$
+    $$ (8x + 16)(x - 11)\sqrt{1-x^2} + (x - 11)^2(1+x) \leq 0 $$
+
+We can subtract the first from the second, and we get a relatively compact equation:
+
+    $$ (8x + 16)^2(1-x) - (x - 11)^2(1+x) \leq 0 $$
+
+And this is where things get very messy.
+
+    $$ 64(x^2 + 4x + 4)(1-x) - (x - 22x + 121)(1+x) \leq 0 $$
+    $$ 64(-x^3 - 4x^2 -4x + x^2 + 4x + 4) -
+        (x^3 -22x^2 + 121x + x^2 -22x + 121) \leq 0 $$
+    $$ -65x^3 - 171x^2 - 99x + 135 \leq 0 $$
+    $$ 65x^3 + 171x^2 + 99x - 135 \leq 0 $$
+
+And this is where I have to admit that I do not know how to solve for this equation. I ended up
+using a symbolic math solver, python's to be specific, but I got the result of $x = \frac{3}{5}$.
+
+The inequality is continuous over the interval $ 0 < x \leq 1 $, and we know the inequality fails at
+0, but holds at 1. This means that with our zero crossing at $x = \frac{3}{5}, the inequality must
+hold over the inequality $\frac{3}{5} \leq x leq 1$
+
+Combining our two halfs of work, we come to our ultimate solution:
+
+1. Reals only: $ \frac{3}{5} \leq x < 11 $
+2. Reals, then Imaginaries: $ \frac{3}{5} \leq x < 11 $
+3. Modulus: $ \frac{3}{5} \leq x $
+
+
 
 The Idea
 ====================================================================================================
 
+Substitute
+
+     $$  y = \frac{\sqrt{1-x}}{\sqrt{1+x}} $$
+
+Comments on The Idea
+====================================================================================================
+
+Very interesting. Very interesting indeed.
+
+In my intial notes, I attempted to solve for the left side of he inequality.
+I noted that the right hand side of the inequality:
+
+    $$ x(8\sqrt{1-x} + \sqrt{1+x}) $$
+
+cannot ever be negative, i.e.:
+
+    $$ x(8\sqrt{1-x} + \sqrt{1+x})  > 0 $$
+
+Noting this, I attempted to solve for the inequality:
+
+    $$ 0 \leq 11 \sqrt{1+x} - 16 \sqrt{1-x} $$ 
+
+I believed that solving for this inequality might lend me some understanding on how to solve the
+problem. It made the cutting room floor because I didn't believe it ultimately helped explain the
+process to solve the problem, but once reduced, this happens:
+
+    $$ 0 \leq 11 \sqrt{1+x} - 16 \sqrt{1-x} $$ 
+    $$ 0 \leq \frac{11 \sqrt{1+x} - 16 \sqrt{1-x}}{11 \sqrt{1+x}} $$ 
+    $$ 0 \leq 1 - \frac{16 \sqrt{1-x} } {11 \sqrt{1+x} } $$ 
+
+It's important to stop here for a minute to specify that it's very important that it is $\sqrt{1+x}$
+in the denominator, rather than $\sqrt{1-x}$. This is because if $x=1$, then $\sqrt{1-x}$ in the
+denominator is a divide-by-zero which is undefined in linear algebra. Allowing a division by zero,
+and a negative in a square root (if we restrict ourselves to reals) can introduce all sorts of
+strange and breaking errors.
+
+
+But, we'll take $y$ as a variable, and work off of that, let's divide the whole thing by
+$\sqrt{1+x}$
+
+
+    $$ x(8y + 1) \leq 11 - 16y $$
+
+
 The Canonical Solution
 ====================================================================================================
+
+
+
+Closing Thoughts
+====================================================================================================
+
+
 
 
 <!-- Markdeep: https://casual-effects.com/markdeep/ -->
