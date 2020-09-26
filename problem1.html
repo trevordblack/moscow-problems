@@ -216,7 +216,7 @@ Comments on The Idea
 
 Very interesting. Very interesting indeed.
 
-In my intial notes, I attempted to solve for the left side of he inequality.
+In my intial notes, I attempted to solve for the left side of the inequality.
 I noted that the right hand side of the inequality:
 
     $$ x(8\sqrt{1-x} + \sqrt{1+x}) $$
@@ -250,10 +250,82 @@ $\sqrt{1+x}$
 
     $$ x(8y + 1) \leq 11 - 16y $$
 
+Okay. Hmm. Hmmmm.
+
+...
+
+...
+
+
+We can try pushing $y$ to one side of the equation?
+
+    $$ 8xy + x \leq 11 - 16y $$
+    $$ 8xy + 16y \leq 11 - x $$
+    $$ y(8x + 16) \leq 11 - x $$
+    $$ y \leq \frac{11 - x}{8x + 16} $$
+
+Ahh. then we just square both sides:
+
+    $$ y^2 \leq \frac{(11 - x)^2}{(8x + 16)^2} $$
+    $$ y^2 \leq \frac{x^2 - 22x + 121}{64(x^2 + 4x + 4)} $$
+    $$ \frac{1-x}{1+x} \leq \frac{x^2 - 22x + 121}{64(x^2 + 4x + 4)} $$
+
+Which matches up with my work above. Unless there is a simple way to solve for a cubic polynomial,
+I'm missing something from all of this.
 
 The Canonical Solution
 ====================================================================================================
 
+The real solution can be found in the paper. I'm just going to comment on the new information.
+
+As expected, the original paper decided that a solution does not exist above $x > 1$ due to
+complexity. This was an entirely reasonable outcome, although I think researching complexity
+comparators was more fun.
+
+But I have to admit that I just completely blew it on this one. It's relatively straightforward to
+arrive at the cubic polynomial, and then just use polynomails solvers to produce the correct
+result. But, the solution very clearly outlines a solveable approach to the problem that does not
+an unsolveably complicated cubic polynomail.
+
+The idea that I failed to see was to take the idea and invert it.
+
+    $$  y = \frac{\sqrt{1-x}}{\sqrt{1+x}} $$
+    $$ \iff $$
+    $$ x = \frac{1-y^2}{1+y^2} $$
+
+Picking up from our initial substition of $y$ into the inequality, we replace in the $x$ as well:
+
+    $$ x(8y + 1) \leq 11 - 16y $$
+    $$ \frac{1 - y^2}{1 + y^2}(8y + 1) \leq 11 - 16y $$
+    $$ (1 - y^2)(8y + 1) \leq (1 + y^2)(11 - 16y) $$
+    $$ (1 - y^2)(8y + 1) \leq (1 + y^2)(11 - 16y) $$
+    $$ -8y^3 - y^2 + 8y + 1 \leq -16y^3 + 11y^2 - 16y + 11 $$
+    $$ 0 \leq -8y^3 + 12y^2 - 24y + 10$$
+
+Don't blink or you'll miss it...
+
+    $$ 0 \leq (2y - 1))(-4y^2 + 4y^2 - 10) $$
+
+If $x < 1$ then $0 \leq y \leq 1$. This means that $-4y^2 + 4y^2 - 10$ is strictly less than 0.
+This term is negative. So the inequality only holds for values where $2y -1$ is negative:
+
+    $$ 2y - 1 \leq 0 $$
+    $$ y \leq \frac{1}{2} $$
+
+$y$ is monotonic in $x$, so we can do the following:
+
+    $$ x = \frac{1-y^2}{1+y^2} $$
+
+Becomes
+
+    $$ x \geq \frac{1-(\frac{1}{2})^2}{1+(\frac{1}{2})^2} $$
+    $$ x \geq \frac{1-\frac{1}{4}}{1+\frac{1}{4}} $$
+    $$ x \geq \frac{4-1}{4+1} $$
+    $$ x \geq \frac{3}{5} $$
+
+So, in total, and we already knew this twice over,
+
+    $$ \frac{3}{5} \leq x < 1 $$
 
 
 Closing Thoughts
