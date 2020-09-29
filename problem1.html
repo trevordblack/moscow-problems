@@ -103,13 +103,13 @@ We can simplify by moving terms around:
 	$$ 0 \leq 312x^3 - 72x^2 $$
 	$$ 0 \leq x^2(312x - 72) $$
 
-This equality always holds for values of $x$ greater than 1.
+This equality always holds for values of $x$ greater than $ 1 $.
 
-With this solution, we have a complete answer for values of $x$ greater than 1. Where across our
+With this solution, we have a complete answer for values of $x$ greater than $ 1 $. Where across our
 three possible ways:
-1. Reals only: $1 < x < 11 $
-2. Reals, then Imaginaries: $1 < x < 11$
-3. Modulus: $1 < x$
+1. Reals only: $ 1 < x < 11 $
+2. Reals, then Imaginaries: $ 1 < x < 11 $
+3. Modulus: $ 1 < x $
 
 We need to now finish up the inequality for $ 0 < x \leq 1 $:
 
@@ -117,7 +117,7 @@ We need to now finish up the inequality for $ 0 < x \leq 1 $:
 
 It's not immediately obvious to me how this equation is solved. One thing that I can quickly do to
 gain an understanding of problem is solve the inequality at the extremes. Which in this case are $x$
-very close to 0, and $x$ = 1
+very close to $ 0 $, and $ x = 1 $
 
     $$ x \approx 0 $$
 
@@ -127,7 +127,7 @@ Approximates to
     $$ 0(8*1 + 1) \leq  11*1 - 16$$
     $$ 0 \leq -5 $$
 
-The above inequality is false, So, our initial inequality fails in the area surrounding 0.
+The above inequality is false, So, our initial inequality fails in the area surrounding $ 0 $.
 If we try the other extreme:
 
     $$ x = 1 $$
@@ -190,11 +190,11 @@ And this is where things get very messy.
     $$ 65x^3 + 171x^2 + 99x - 135 \leq 0 $$
 
 And this is where I have to admit that I do not know how to solve for this equation. I ended up
-using a symbolic math solver, python's to be specific, but I got the result of $x = \frac{3}{5}$.
+using a symbolic math solver, python's to be specific, and I got the result of $x = \frac{3}{5}$.
 
 The inequality is continuous over the interval $ 0 < x \leq 1 $, and we know the inequality fails at
-0, but holds at 1. This means that with our zero crossing at $x = \frac{3}{5}, the inequality must
-hold over the inequality $\frac{3}{5} \leq x leq 1$
+$0$, but holds at $1$. This means that with our zero crossing at $ x = \frac{3}{5} $, the inequality
+must hold over the inequality $\frac{3}{5} \leq x leq 1$
 
 Combining our two halfs of work, we come to our ultimate solution:
 
@@ -278,16 +278,16 @@ The Canonical Solution
 
 The real solution can be found in the paper. I'm just going to comment on the new information.
 
-As expected, the original paper decided that a solution does not exist above $x > 1$ due to
+As expected, the original paper decided that a solution does not exist above $ x > 1 $ due to
 complexity. This was an entirely reasonable outcome, although I think researching complexity
 comparators was more fun.
 
 But I have to admit that I just completely blew it on this one. It's relatively straightforward to
-arrive at the cubic polynomial, and then just use polynomails solvers to produce the correct
+arrive at the cubic polynomial, and then just use polynomail solvers to produce the correct
 result. But, the solution very clearly outlines a solveable approach to the problem that does not
-an unsolveably complicated cubic polynomail.
+produce an unsolveably complicated cubic polynomail.
 
-The idea that I failed to see was to take the idea and invert it.
+The idea that I failed to see was to take the IDEA and invert it.
 
     $$  y = \frac{\sqrt{1-x}}{\sqrt{1+x}} $$
     $$ \iff $$
@@ -306,7 +306,7 @@ Don't blink or you'll miss it...
 
     $$ 0 \leq (2y - 1))(-4y^2 + 4y^2 - 10) $$
 
-If $x < 1$ then $0 \leq y \leq 1$. This means that $-4y^2 + 4y^2 - 10$ is strictly less than 0.
+If $x < 1$ then $0 \leq y \leq 1$. This means that $-4y^2 + 4y^2 - 10$ is strictly less than $0$.
 This term is negative. So the inequality only holds for values where $2y -1$ is negative:
 
     $$ 2y - 1 \leq 0 $$
@@ -331,7 +331,30 @@ So, in total, and we already knew this twice over,
 Closing Thoughts
 ====================================================================================================
 
+My first and only thought on this is that I'm pretty dissappointed by my attempts here. It kind of
+feels like I shirked the hardest part of the equation, the cubic polynomial to a computer. When,
+really, the idea and associated solution were specifically tailored to lead (?) the participant to a
+solution to the cubic polynomial. It felt as if that the reader would be able to solve toward the
+cubic polynomial was given, and the actual test (as it were) was in the last final push.
 
+I'm not sure if I should be proud or embarrassed that I went outside the bounds of the problem to
+solve for the complex case, when that was pretty clearly never a portion of the original problem.
+One the one hand it feels good to approach the problem from a novel direction, on the other hand,
+it just feels like a failure in reading comprehension.
+
+I don't honestly have a ton of positive things to say about my performance here.
+
+While I can't say much positively, I'll have to make do with _doing_ more positively in the future. We
+can start with things learned:
+
+1. Be liberal with substituting in variables for repeated complex (in a classical sense) values
+2. Find the inverse of these variables, see the equation can be more simply explained
+3. There wasn't any new math that I was unfamiliar with here, need to be more creative in future
+4. Don't give up.
+
+Trevor David Black
+
+28th September, 2020
 
 
 <!-- Markdeep: https://casual-effects.com/markdeep/ -->
